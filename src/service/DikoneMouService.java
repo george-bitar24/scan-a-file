@@ -18,8 +18,10 @@ public class DikoneMouService {
     public void scanFile() throws IOException {
         BufferedReader myBufferedReader = fileUtil.getBufferedReader();
         String line = myBufferedReader.readLine();
+        int totalWords = 0;
         while (line != null){
             countWords(line);
+            totalWords += countWords(line);
             minima(line, countWords(line));
             minimaPhone(line);
             minimaMobile(line);
@@ -32,6 +34,10 @@ public class DikoneMouService {
             line = myBufferedReader.readLine();
         }
         myBufferedReader.close();
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("total words of text file are: " + totalWords);
     }
 
     private Matcher minimaMobile(String line) {
